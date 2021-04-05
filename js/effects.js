@@ -28,6 +28,7 @@ const EFFECTS = [
             { label: "ねるねる", fn: effectKurukuru },
             { label: "ゆらゆら", fn: effectYurayura },
             { label: "ぱたぱた", fn: effectPatapata },
+            { label: "ドカベン", fn: effectDokaben },
             { label: "ヤッタ", fn: effectYatta },
             { label: "ぽよーん", fn: effectPoyon },
             { label: "もちもち", fn: effectMotimoti },
@@ -157,6 +158,15 @@ function effectShadowRotate(keyframe, ctx) {
 }
 
 function effectPatapata(keyframe, ctx, cellWidth) {
+    ctx.transform(
+        Math.cos(2 * Math.PI * keyframe),
+        0, 0,
+        1,
+        cellWidth * (0.5 - 0.5 * Math.cos(2 * Math.PI * keyframe)), 0,
+    );
+}
+
+function effectDokaben(keyframe, ctx, cellWidth) {
     ctx.transform(
         Math.cos(2 * Math.PI * keyframe),
         0, 0,
